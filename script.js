@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const closeBtn = screen.querySelector(".close-btn");
         closeBtn.addEventListener("click", function() {
             screen.classList.add("hidden");
-            loaderScreen.style.display = "flex"; // Показываем загрузочный экран
+            loaderScreen.style.display = "flex";
             setTimeout(function() {
                 window.location.href = "game-start.html";
-            }, 3000); // Имитация задержки, можно удалить в реальном приложении
+            }, 3000);
         });
     }
 
@@ -32,26 +32,30 @@ document.addEventListener("DOMContentLoaded", function() {
     continueBtn.addEventListener("click", function() {
         welcomeScreen.classList.add("hidden");
         firstStepsScreen.classList.remove("hidden");
+        firstStepsScreen.classList.add("show");
     });
 
     continueBtn2.addEventListener("click", function() {
         firstStepsScreen.classList.add("hidden");
         whatNextScreen.classList.remove("hidden");
+        whatNextScreen.classList.add("show");
     });
 
     continueBtn3.addEventListener("click", function() {
         whatNextScreen.classList.add("hidden");
         adviceScreen.classList.remove("hidden");
+        adviceScreen.classList.add("show");
     });
 
     startBtn.addEventListener("click", function() {
         adviceScreen.classList.add("hidden");
         startScreen.classList.remove("hidden");
+        startScreen.classList.add("show");
     });
 
-    // Simulate loading delay for initial welcome screen
     setTimeout(function() {
         loaderScreen.style.display = "none";
         welcomeScreen.classList.remove("hidden");
-    }, 3000); // Имитация задержки загрузки, можно изменить или удалить
+        welcomeScreen.classList.add("show");
+    }, 3000);
 });
