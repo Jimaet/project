@@ -15,6 +15,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 9999;
 }
 
 .screen {
@@ -32,17 +33,24 @@ body {
     justify-content: center;
     align-items: center;
     overflow-y: auto;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
 }
 
-.hidden {
+.screen.hidden {
     display: none;
+}
+
+.screen.show {
+    transform: rotateY(0);
 }
 
 #close-btn {
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 24px;
+    font-size: 36px; /* Увеличенный размер */
     cursor: pointer;
 }
 
@@ -53,24 +61,29 @@ button {
     cursor: pointer;
     font-size: 16px;
     color: #8A8A8A;
-    margin-top: 20px;
 }
 
 button span {
     margin-left: 5px;
 }
 
-button#continue-btn-2, button#continue-btn-3 {
-    margin-top: auto;
+button#continue-btn, button#continue-btn-2, button#continue-btn-3 {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 18px; /* Увеличенный размер */
+    font-weight: bold; /* Жирный шрифт */
 }
 
 button#start-btn {
     background-color: #9713FF;
     color: white;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     border-radius: 5px;
-    margin-top: auto;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
 }
 
 h1 {
@@ -80,41 +93,10 @@ h1 {
 p {
     margin-top: 10px;
     line-height: 1.5;
-}
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    transition: opacity 0.6s ease-in-out;
+    opacity: 0;
 }
 
-#loader-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Высокий z-index, чтобы всегда оставаться поверх контента */
-}
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logo img {
-    height: 40px; /* Высота логотипа, подставьте свои значения */
-}
-
-.pet-mate-text {
-    color: #D377FF;
-    font-size: 18px;
+.show p {
+    opacity: 1;
 }
