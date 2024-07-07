@@ -5,21 +5,16 @@ document.addEventListener("DOMContentLoaded", function() {
     const whatNextScreen = document.getElementById("what-next-screen");
     const adviceScreen = document.getElementById("advice-screen");
     const startScreen = document.getElementById("start-screen");
-
     const continueBtn = document.getElementById("continue-btn");
     const continueBtn2 = document.getElementById("continue-btn-2");
     const continueBtn3 = document.getElementById("continue-btn-3");
     const startBtn = document.getElementById("start-btn");
 
-    // Функция для закрытия экрана по клику на крестик
+    // Функция для закрытия экрана по клику на крестик и перенаправления на person.html
     function closeScreen(screen) {
         const closeBtn = screen.querySelector(".close-btn");
         closeBtn.addEventListener("click", function() {
-            screen.classList.add("hidden");
-            loaderScreen.style.display = "flex";
-            setTimeout(function() {
-                window.location.href = "game-start.html";
-            }, 3000);
+            window.location.href = "person.html";
         });
     }
 
@@ -48,9 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     startBtn.addEventListener("click", function() {
-        adviceScreen.classList.add("hidden");
-        startScreen.classList.remove("hidden");
-        startScreen.classList.add("show");
+        window.location.href = "person.html";
     });
 
     setTimeout(function() {
