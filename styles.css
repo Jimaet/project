@@ -94,7 +94,7 @@ h1 {
     text-align: left;
     opacity: 0;
     animation: fadeIn 2s forwards;
-    font-size: 32px; /* Увеличенный размер */
+    font-size: 30px; /* Увеличенный размер */
     font-weight: bold; 
     
 
@@ -106,7 +106,7 @@ p {
     text-align: left;
     opacity: 0;
     animation: fadeIn 2s forwards; /* Анимация для плавного появления текста */
-    font-size: 24px; /* Увеличенный размер */
+    font-size: 20px; /* Увеличенный размер */
     font-weight: bold; 
     -webkit-text-stroke: 1px #000000;
 }
