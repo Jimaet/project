@@ -106,10 +106,7 @@ p {
     font-size: 18px; /* Увеличенный размер */
     font-weight: bold; 
 }
-screen-hidden{
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-}
+
 @keyframes fadeIn {
     to {
         opacity: 1;
