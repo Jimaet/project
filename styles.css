@@ -93,7 +93,8 @@ h1 {
     text-align: left;
     opacity: 0;
     animation: fadeIn 2s forwards;
-    font-weight: bold;
+    font-size: 30px; /* Увеличенный размер */
+    font-weight: bold; 
 }
 
 p {
@@ -102,7 +103,8 @@ p {
     text-align: left;
     opacity: 0;
     animation: fadeIn 2s forwards; /* Анимация для плавного появления текста */
-    font-weight: bold;
+    font-size: 18px; /* Увеличенный размер */
+    font-weight: bold; 
 }
 
 @keyframes fadeIn {
