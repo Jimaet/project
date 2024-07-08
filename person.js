@@ -1,6 +1,8 @@
 document.getElementById('generateAvatar').addEventListener('click', createAvatar);
-document.getElementById('regenerateAvatar').addEventListener('click', createAvatar);
+document.getElementById('regenerateAvatar').addEventListener('click', regenerateAvatar);
 document.getElementById('nextStep').addEventListener('click', saveAndProceed);
+
+let currentAvatarIndex = 0; // Для хранения текущего индекса аватара
 
 function createAvatar() {
     const username = document.getElementById('username').value;
@@ -8,12 +10,26 @@ function createAvatar() {
         alert('Please enter a name.');
         return;
     }
-    fetch(`https://api.multiavatar.com/${username}.svg`)
+    fetchAvatar(username);
+}
+
+function fetchAvatar(username) {
+    fetch(`https://api.multiavatar.com/${username}.svg?i=${currentAvatarIndex}`)
         .then(response => response.text())
         .then(svg => {
             document.getElementById('avatarContainer').innerHTML = svg;
         })
         .catch(error => console.error('Error:', error));
+}
+
+function regenerateAvatar() {
+    currentAvatarIndex++; // Увеличиваем индекс для генерации нового аватара
+    const username = document.getElementById('username').value;
+    if (!username) {
+        alert('Please enter a name.');
+        return;
+    }
+    fetchAvatar(username);
 }
 
 function saveAndProceed() {
@@ -29,8 +45,7 @@ function saveAndProceed() {
     // Assume you have a way to get the telegram ID (this is just a placeholder)
     const telegramId = "123456"; // Replace with actual telegram ID retrieval logic
 
-    // Save data to JSON using Netlify Functions
-    fetch('/.netlify/functions/save_avatar', {
+    fetch('save_avatar.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
