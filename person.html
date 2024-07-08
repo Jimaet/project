@@ -3,77 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Avatar</title>
     <link rel="stylesheet" href="person.css">
-    <title>Настройка персонажа - Pet Mate</title>
 </head>
 <body>
-    <p>Если вы видите этот текст, HTML загружается правильно.</p>
-    <div id="customization-screen" class="screen">
-        <h1>Приветствуем вас в нашей игре!👋 Тут ты сможешь настроить своего персонажа💖</h1>
-        <button id="start-customization">Начало</button>
-        
-        <div id="customization-form" class="hidden">
-            <label for="character-name">Имя персонажа</label>
-            <input type="text" id="character-name" name="character-name" placeholder="Введите имя">
-
-            <label for="character-gender">Пол</label>
-            <select id="character-gender" name="character-gender">
-                <option value="male">Мужской</option>
-                <option value="female">Женский</option>
-            </select>
-
-            <label for="character-face">Черты лица</label>
-            <select id="character-face" name="character-face">
-                <option value="oval">Овал лица</option>
-                <option value="eyes">Глаза</option>
-                <option value="eyebrows">Брови</option>
-                <option value="mouth">Рот</option>
-            </select>
-
-            <label for="character-hair">Прическа</label>
-            <select id="character-hair" name="character-hair">
-                <option value="short">Короткая</option>
-                <option value="long">Длинная</option>
-                <option value="curly">Кудрявая</option>
-            </select>
-
-            <label for="character-top">Верхняя одежда</label>
-            <select id="character-top" name="character-top">
-                <option value="tshirt">Футболка</option>
-                <option value="shirt">Рубашка</option>
-                <option value="jacket">Куртка</option>
-            </select>
-
-            <label for="character-bottom">Штаны или шорты</label>
-            <select id="character-bottom" name="character-bottom">
-                <option value="pants">Штаны</option>
-                <option value="shorts">Шорты</option>
-            </select>
-
-            <label for="character-shoes">Обувь</label>
-            <select id="character-shoes" name="character-shoes">
-                <option value="sneakers">Кроссовки</option>
-                <option value="boots">Ботинки</option>
-                <option value="sandals">Сандалии</option>
-            </select>
-
-            <label for="character-accessories">Бижутерия</label>
-            <select id="character-accessories" name="character-accessories">
-                <option value="none">Без бижутерии</option>
-                <option value="necklace">Ожерелье</option>
-                <option value="earrings">Серьги</option>
-            </select>
-
-            <button id="save-character">Сохранить</button>
-        </div>
-
-        <div id="character-display">
-            <img id="character-face-img" src="" alt="Лицо">
-            <img id="character-hair-img" src="" alt="Прическа">
-            <img id="character-top-img" src="" alt="Верхняя одежда">
-            <img id="character-bottom-img" src="" alt="Нижняя одежда">
-            <img id="character-shoes-img" src="" alt="Обувь">
-            <img id="character-accessories-img" src="" alt="Бижутерия">
+    <div class="container">
+        <h1>Create Your Avatar</h1>
+        <form id="avatarForm">
+            <label for="username">Enter your name:</label>
+            <input type="text" id="username" name="username" placeholder="Введите имя..." required>
+            <button type="button" id="generateAvatar">Сгенерировать аватар</button>
+        </form>
+        <div id="avatarContainer"></div>
+        <div class="buttons">
+            <button type="button" id="regenerateAvatar">Сгенерировать повторно</button>
+            <button type="button" id="nextStep">Далее</button>
         </div>
     </div>
 
