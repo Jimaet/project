@@ -1,37 +1,51 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const startBtn = document.getElementById("start-customization");
-    const customizationForm = document.getElementById("customization-form");
-    const characterFaceImg = document.getElementById("character-face-img");
-    const characterHairImg = document.getElementById("character-hair-img");
-    const characterTopImg = document.getElementById("character-top-img");
-    const characterBottomImg = document.getElementById("character-bottom-img");
-    const characterShoesImg = document.getElementById("character-shoes-img");
-    const characterAccessoriesImg = document.getElementById("character-accessories-img");
+document.getElementById('generateAvatar').addEventListener('click', createAvatar);
+document.getElementById('regenerateAvatar').addEventListener('click', createAvatar);
+document.getElementById('nextStep').addEventListener('click', saveAndProceed);
 
-    startBtn.addEventListener("click", function() {
-        startBtn.classList.add("hidden");
-        customizationForm.classList.remove("hidden");
-        customizationForm.classList.add("show");
-    });
+function createAvatar() {
+    const username = document.getElementById('username').value;
+    if (!username) {
+        alert('Please enter a name.');
+        return;
+    }
+    fetch(`https://api.multiavatar.com/${username}.svg`)
+        .then(response => response.text())
+        .then(svg => {
+            document.getElementById('avatarContainer').innerHTML = svg;
+        })
+        .catch(error => console.error('Error:', error));
+}
 
-    const saveCharacterBtn = document.getElementById("save-character");
-    saveCharacterBtn.addEventListener("click", function() {
-        // Получение выбранных значений
-        const face = document.getElementById("character-face").value;
-        const hair = document.getElementById("character-hair").value;
-        const top = document.getElementById("character-top").value;
-        const bottom = document.getElementById("character-bottom").value;
-        const shoes = document.getElementById("character-shoes").value;
-        const accessories = document.getElementById("character-accessories").value;
+function saveAndProceed() {
+    const username = document.getElementById('username').value;
+    const avatarContainer = document.getElementById('avatarContainer');
+    const avatarSVG = avatarContainer.innerHTML;
 
-        // Установка изображений на основе выбранных значений
-        characterFaceImg.src = `images/face_${face}.png`;
-        characterHairImg.src = `images/hair_${hair}.png`;
-        characterTopImg.src = `images/top_${top}.png`;
-        characterBottomImg.src = `images/bottom_${bottom}.png`;
-        characterShoesImg.src = `images/shoes_${shoes}.png`;
-        characterAccessoriesImg.src = `images/accessories_${accessories}.png`;
+    if (!username || !avatarSVG) {
+        alert('Please enter a name and generate an avatar.');
+        return;
+    }
 
-        alert("Персонаж сохранен!");
-    });
-});
+    // Assume you have a way to get the telegram ID (this is just a placeholder)
+    const telegramId = "123456"; // Replace with actual telegram ID retrieval logic
+
+    // Save data to JSON using Netlify Functions
+    fetch('/.netlify/functions/save_avatar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username: username, telegramId: telegramId, svg: avatarSVG })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Avatar saved successfully!');
+            // Redirect or proceed to the next step
+            // window.location.href = 'next_page.html'; // Uncomment and replace with the actual next page
+        } else {
+            alert('Error saving avatar.');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
