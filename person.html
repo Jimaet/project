@@ -3,22 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Avatar</title>
+    <title>Pet Mate - Регистрация</title>
     <link rel="stylesheet" href="person.css">
 </head>
 <body>
     <div class="container">
-        <h1>Create Your Avatar</h1>
-        <form id="avatarForm">
-            <label for="username">Enter your name:</label>
-            <input type="text" id="username" name="username" placeholder="Введите имя..." required>
-            <button type="button" id="generateAvatar">Сгенерировать аватар</button>
-        </form>
-        <div id="avatarContainer"></div>
-        <div class="buttons">
-            <button type="button" id="regenerateAvatar">Сгенерировать повторно</button>
-            <button type="button" id="nextStep">Далее</button>
+        <h1>Добро пожаловать в Pet Mate!</h1>
+        <p>Игра, где вы и ваша вторая половинка будете совместно выращивать виртуального питомца.</p>
+        
+        <div class="input-wrapper">
+            
+            <input type="text" id="name" placeholder="введите ваше имя..." maxlength="50">
         </div>
+
+        <div class="gender-selection">
+            <button id="maleBtn" class="gender-btn" onclick="selectGender('male')">
+                <img src="images/male.png" alt="Мужчина">
+                <span>Мужчина</span>
+            </button>
+            <button id="femaleBtn" class="gender-btn" onclick="selectGender('female')">
+                <img src="images/female.png" alt="Женщина">
+                <span>Женщина</span>
+            </button>
+        </div>
+
+        <button id="nextBtn" class="next-btn" onclick="savePerson()">Далее</button>
     </div>
 
     <script src="person.js"></script>
