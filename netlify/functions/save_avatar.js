@@ -12,8 +12,10 @@ exports.handler = async function(event, context) {
     const data = JSON.parse(event.body);
     const { username, telegramId, svg } = data;
 
-    // Load existing data
-    const filePath = path.join(__dirname, '../../person.json');
+    // Путь к файлу person.json
+    const filePath = path.resolve(__dirname, '../../person.json');
+    console.log('filePath:', filePath);
+
     let existingData = [];
 
     try {
@@ -25,14 +27,14 @@ exports.handler = async function(event, context) {
         console.error('Error reading person.json:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ success: false, message: 'Error reading person.json' }),
+            body: JSON.stringify({ success: false, message: 'Error reading person.json', error: error.message }),
         };
     }
 
-    // Add new data
+    // Добавление новых данных
     existingData.push({ username, telegramId, svg });
 
-    // Save data to JSON file
+    // Сохранение данных в JSON файл
     try {
         fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
         return {
@@ -43,7 +45,7 @@ exports.handler = async function(event, context) {
         console.error('Error writing to person.json:', error);
         return {
             statusCode: 500,
-            body: JSON.stringify({ success: false, message: 'Error saving avatar' }),
+            body: JSON.stringify({ success: false, message: 'Error saving avatar', error: error.message }),
         };
     }
 };
