@@ -5,37 +5,24 @@ body {
     background-color: #ffffff;
 }
 
-#loader-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
 .screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover; /* Заполняет экран изображением */
-    background-position: center; /* Центрирует изображение */
+    background-size: cover;
+    background-position: center;
     padding: 20px;
     box-sizing: border-box;
-    text-align: left; /* Текст по левому краю */
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; /* Выравнивание по левому краю */
+    align-items: flex-start;
     overflow-y: auto;
-    opacity: 0;
-    transition: opacity 1s ease-in-out; /* Плавное появление */
+    opacity: 1; /* Начальная видимость */
+    transition: opacity 1s ease-in-out;
 }
 
 .screen.hidden {
@@ -50,10 +37,10 @@ body {
     position: fixed;
     top: 20px;
     right: 20px;
-    font-size: 48px; /* Увеличенный размер */
+    font-size: 48px;
     cursor: pointer;
-    z-index: 10000; /* Высокий z-index, чтобы оставаться поверх контента */
-    color: #000; /* Цвет крестика */
+    z-index: 10000;
+    color: #000;
 }
 
 button {
@@ -73,8 +60,8 @@ button#continue-btn, button#continue-btn-2, button#continue-btn-3 {
     position: absolute;
     right: 20px;
     bottom: 20px;
-    font-size: 20px; /* Увеличенный размер */
-    font-weight: bold; /* Жирный шрифт */
+    font-size: 20px;
+    font-weight: bold;
     color: #4e4e4e;
 }
 
@@ -92,28 +79,23 @@ button#start-btn {
 h1 {
     margin-top: 20px;
     text-align: left;
-    opacity: 0;
+    opacity: 1; /* Начальная видимость */
     animation: fadeIn 2s forwards;
-    font-size: 30px; /* Увеличенный размер */
-    font-weight: bold; 
-    
-
+    font-size: 32px;
+    font-weight: bold;
 }
 
 p {
     margin-top: 10px;
     line-height: 1.5;
     text-align: left;
-    opacity: 0;
-    animation: fadeIn 2s forwards; /* Анимация для плавного появления текста */
-    font-size: 20px; /* Увеличенный размер */
-    font-weight: bold; 
+    opacity: 1; /* Начальная видимость */
+    animation: fadeIn 2s forwards;
+    font-size: 24px;
+    font-weight: bold;
     -webkit-text-stroke: 1px #000000;
 }
-screen-hidden{
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-}
+
 @keyframes fadeIn {
     to {
         opacity: 1;
