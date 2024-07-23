@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Mate Loading</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 2; /* Устанавливаем контейнер выше фона */
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1; /* Устанавливаем фон ниже контейнера */
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0) 100%);
+            z-index: 1; /* Устанавливаем overlay ниже контейнера */
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid transparent;
+            border-top: 5px solid #FFD600;
+            border-bottom: 5px solid #796600;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            margin-top: 20px;
+            font-size: 34px;
+            font-weight: light; 
+        }
+
+        .title {
+            margin-top: 20px;
+            font-size: 48px;
+            color: #FFD600;
+            font-weight: bold; 
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #FFFFFF;
+        }
+
+        .info-text {
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: bold; 
+            color: #FFFFFF;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Загрузка...</div>
+        <div class="title">Pet Mate</div>
+        <div class="subtitle">will be launched</div>
+        <div class="info-text">More info in official channels</div>
+        <div class="social-icons">
+            <a href="https://www.youtube.com" target="_blank">
+                <img src="mainphoto/youtube.png" alt="YouTube">
+            </a>
+            <a href="https://www.telegram.org" target="_blank">
+                <img src="mainphoto/Telegram.png" alt="Telegram">
+            </a>
+            <a href="https://www.tiktok.com" target="_blank">
+                <img src="mainphoto/tiktok.png" alt="TikTok">
+            </a>
+        </div>
+    </div>
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <script>
+        // Функция для получения случайного изображения
+        function getRandomImage() {
+            const images = [
+                'Mainphoto/loading_1.png',
+                'Mainphoto/loading_2.png',
+                'Mainphoto/loading_3.png',
+                'Mainphoto/loading_4.png'
+            ];
+            const randomIndex = Math.floor(Math.random() * images.length);
+            return images[randomIndex];
+        }
+
+        // Устанавливаем случайное изображение при загрузке страницы
+        document.querySelector('.background').style.backgroundImage = `url(${getRandomImage()})`;
+
+        // Переход на index.html через 5 секунд
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 5000);
+    </script>
+</body>
+</html>
