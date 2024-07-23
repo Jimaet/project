@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const loaderScreen = document.getElementById("loader-screen");
     const welcomeScreen = document.getElementById("welcome-screen");
     const firstStepsScreen = document.getElementById("first-steps-screen");
     const whatNextScreen = document.getElementById("what-next-screen");
     const adviceScreen = document.getElementById("advice-screen");
-    const startScreen = document.getElementById("start-screen");
     const continueBtn = document.getElementById("continue-btn");
     const continueBtn2 = document.getElementById("continue-btn-2");
     const continueBtn3 = document.getElementById("continue-btn-3");
@@ -46,9 +44,5 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = "person.html";
     });
 
-    setTimeout(function() {
-        loaderScreen.style.display = "none";
-        welcomeScreen.classList.remove("hidden");
-        welcomeScreen.classList.add("show");
-    }, 3000);
+    
 });
