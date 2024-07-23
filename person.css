@@ -2,14 +2,14 @@
 
 h1 {
     color: #9713FF;
-    font-size: 24px;
+    font-size: 32px;
     font-weight: bold; 
 }
 
 p {
     color: #58ff25;
-    -webkit-text-stroke: 1px #000000;
-    font-size: 18px;
+    -webkit-text-stroke: 1px#9713FF;
+    font-size: 24px;
     font-weight: bold; 
 }
 
