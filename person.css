@@ -4,12 +4,11 @@ h1 {
     color: #9713FF;
     font-size: 32px;
     font-weight: bold; 
-    -webkit-text-stroke: 1px#000000;
+
 }
 
 p {
     color: #0eb624;;
-    -webkit-text-stroke: 1px#9713FF;
     font-size: 24px;
     font-weight: bold; 
 }
