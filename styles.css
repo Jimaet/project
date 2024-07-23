@@ -41,6 +41,7 @@ body {
     cursor: pointer;
     z-index: 10000;
     color: #000;
+    text-shadow: 4px 4px 3px rgba(51, 51, 51, 0.7);
 }
 
 button {
@@ -50,6 +51,8 @@ button {
     cursor: pointer;
     font-size: 16px;
     color: #0a0a0a;
+    font-weight: bold;
+    text-shadow: 4px 4px 3px rgba(51, 51, 51, 0.7);
 }
 
 button span {
@@ -63,6 +66,7 @@ button#continue-btn, button#continue-btn-2, button#continue-btn-3 {
     font-size: 20px;
     font-weight: bold;
     color: #4e4e4e;
+    text-shadow: 4px 4px 3px rgba(51, 51, 51, 0.7);
 }
 
 button#start-btn {
@@ -74,6 +78,7 @@ button#start-btn {
     position: absolute;
     right: 20px;
     bottom: 20px;
+    text-shadow: 4px 4px 3px rgba(51, 51, 51, 0.7);
 }
 
 h1 {
@@ -83,6 +88,7 @@ h1 {
     animation: fadeIn 2s forwards;
     font-size: 32px;
     font-weight: bold;
+    text-shadow: 4px 4px 3px rgba(51, 51, 51, 0.7);
 }
 
 p {
@@ -94,6 +100,7 @@ p {
     font-size: 24px;
     font-weight: bold;
     -webkit-text-stroke: 1px #000000;
+    text-shadow: 4px 4px 3px rgba(51, 51, 51, 0.7);
 }
 
 @keyframes fadeIn {
